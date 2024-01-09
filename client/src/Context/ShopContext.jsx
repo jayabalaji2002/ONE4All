@@ -7,6 +7,10 @@ export const ShopContext = createContext(null);
 const ShopContextProvider = (props)=>{
     const contextValue = {all_product};
 
+    if (!props) {
+        return null; // or handle the scenario accordingly
+    }
+    
     return(
         <ShopContext.Provider value={contextValue}>
             {props.children}
