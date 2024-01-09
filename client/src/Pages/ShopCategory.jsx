@@ -1,9 +1,10 @@
 import React from 'react'
+import './CSS/ShopCategory.css'
 
 const ShopCategory = () => {
   return (
-    <div>
-      we are shop
+    <div className="app"> 
+      
     </div>
   )
 }
