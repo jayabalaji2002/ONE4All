@@ -1,16 +1,18 @@
 .item{
     width: 350px;
-
+}
+.item img{
+    border-radius: 8px;
 }
 .item p{
-    margin: 6px 0;
-
+    margin: 6px 0px;
 }
 
 .item-prices{
     display: flex;
     gap: 20px;
 }
+
 .item-price-new{
     color: #374151;
     font-size: 18px;

@@ -44,7 +44,6 @@
     gap: 3px;
     cursor: pointer;
     font-family: 'poppins';
-    
 }
 
 .nav-menu hr{
@@ -71,11 +70,10 @@
     cursor: pointer;
     font-size: 20px;
     font-weight: 500;
-    /* background: var(--third-color); */
-    
+    background: white;
 }
 
-.nav-login-cart button:active{
+.nav-login-cart button:hover{
     background: #f3f3f3;
 }
 
