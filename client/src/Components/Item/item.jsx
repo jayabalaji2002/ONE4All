@@ -1,5 +1,6 @@
 import React from "react";
 import "../Item/Item.css";
+// import all_product from "../Assets/all_product";
 
 const Item = (props) => {
   return (
