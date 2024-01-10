@@ -1,0 +1,227 @@
+.loginsignup{
+  width: 100%;
+  height: 100vh;
+  background:#fce3fe;
+  padding-top: 80px;
+  /* margin-bottom: 20px; */
+}
+
+.loginsignup-container{
+  width: 580px;
+  height: 600px;
+  background: white;
+  margin: auto;
+  padding: 40px 60px;
+}
+.loginsignup-container h1{
+  margin: 20px 0px;
+  color: var(--primaryColor);
+}
+.loginsignup-fields{
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+  margin-top: 30px;
+}
+
+
+.loginsignup-fields input{
+  height: 72px;
+  width: 100%;
+  padding-left: 20px;
+  border: 1px solid #c9c9c9;
+  outline: none;
+  color: #5c5c5c;
+  font-size: 18px;
+}
+
+.loginsignup-container button{
+  width: 580px;
+  height: 72px;
+  background: #ff4141;
+  color: white;
+  margin-top: 30px;
+  border: none;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.loginsignup-login{
+  margin-top: 20px;
+  color: #5c5c5c;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.loginsignup-login span{
+  color: #ff4141;
+  font-weight: 600;
+}
+
+.loginsignup-agree{
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  margin-top: 25px;
+  gap: 20px;
+  color: #5c5c5c;
+  font-size: 18px;
+  /* background: black; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-size: 90%; */
+/* } */
+/* :root {
+  --primaryColor: hs1(94, 55%, 56%);
+  --hoverColor: hsl (93, 75%, 76%);
+  --paleGreen: hsl(96, 75%, 89%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: Ohsl(0, 0%, 18%);
+  --greyText: hs1(0, 0%, 75%);
+  --bgColor: hsl (113, 11%, 85%);
+  --inputColor: hsl (330, 12%, 97%);
+  --inputColor: hsl (154, 14%, 90%);
+  /* Font ang Typography */
+  /* --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+} */
+
+/* .flex {
+  display: flex;
+  align-items: center;
+}
+.grid {
+  display: grid;
+  align-items: center;
+  gap: 1.5rem;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.icon{
+  font-size: var(--h2FontSize);
+  cursor: pointer;
+}
+
+img,
+video {
+  height: auto;
+  width: 100%;
+}
+.message {
+  display: none;
+} */
+/* we shall how all this come to use, be pateint guys */
+/* .showMessage {
+  display: block;
+  color: var(--whiteColor);
+  background: rgb(255, 0, 0);
+  border-radius: 3px;
+  text-align: center;
+}
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  color: var(--greyText);
+}
+.btn .icon {
+  margin-left: 0.5rem;
+}
+.btn:hover {
+  color: var(--primaryColor);
+  background: var(--paleGreen);
+} */ 
+
+
+/* page styling */
+
+/* .loginPage{
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 7px 50px rgb(214, 233, 213);
+
+  .container{
+    height: 75vh;
+    width: 60%;
+    margin: auto;
+    justify-content: space-between;
+    border-radius: 10px;
+    background: hsl(0, 80%, 45%);
+  }
+} */
