@@ -9,7 +9,7 @@ export const ShopContext = createContext(null);
 const getDefaultCart = () => {
   let cart = {};
 
-  for (let index = 0; index < all_product.length + 1; index++) {
+  for (let index = 0; index < all_product.length+1; index++) {
     cart[index] = 0;
   }
   return cart;
@@ -18,6 +18,8 @@ const getDefaultCart = () => {
 const ShopContextProvider = (props) => {
   const [selectedCategory, setSelectedCategory] = useState("shop");
   const [cartItems, setCartItems] = useState(getDefaultCart());
+
+  // console.log(cartItems);
 
   const getFilteredProducts = () => {
     if (selectedCategory === "shop") {
@@ -28,11 +30,11 @@ const ShopContextProvider = (props) => {
   };
 
   const addToCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+    setCartItems((prev) => ({ ...prev, [itemId]:prev[itemId] + 1 }));
     // console.log(cartItems);
   };
   const removeFromCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+    setCartItems((prev) => ({ ...prev, [itemId]:prev[itemId] - 1 }));
   };
 
   // this fun is totall number of products in cart page
