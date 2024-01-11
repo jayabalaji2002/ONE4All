@@ -1,9 +1,10 @@
-:root{  
-  --primary-color:#FF9843;
-  --secondary-color:#FFDD95;
-  --third-color:#86A7FC;
-  --fourth-color:#3468C0;
-  --font1:#515151;
+
+:root {
+  --primary-color: #ff9843;
+  --secondary-color: #ffdd95;
+  --third-color: #86a7fc;
+  --fourth-color: #3468c0;
+  --font1: #515151;
 }
 
 .App {
@@ -44,4 +45,3 @@
     transform: rotate(360deg);
   }
 }
-
