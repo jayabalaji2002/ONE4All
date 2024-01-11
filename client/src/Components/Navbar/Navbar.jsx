@@ -51,7 +51,7 @@ function Navbar() {
         <Link to="/login">
           <button>Sign In</button>
         </Link>
-        <Link>
+        <Link to="/cart">
           <img src={cart_icon} alt="" />
         </Link>
         <div className="nav-cart-count">0</div>
