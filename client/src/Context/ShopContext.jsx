@@ -10,7 +10,6 @@ const ShopContextProvider = (props) => {
   // if (!props) {
   //     return null; // or handle the scenario accordingly
   // }
-
   return (
     <ShopContext.Provider value={contextValue}>
       {props.children}
