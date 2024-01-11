@@ -16,7 +16,16 @@ const getDefaultCart = () => {
 };
 
 const ShopContextProvider = (props) => {
+  const [selectedCategory, setSelectedCategory] = useState("shop");
   const [cartItems, setCartItems] = useState(getDefaultCart());
+
+  const getFilteredProducts = () => {
+    if (selectedCategory === "shop") {
+      return all_product;
+    } else {
+      return all_product.filter((item) => item.category === selectedCategory);
+    }
+  };
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
@@ -26,7 +35,6 @@ const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
 
-
   // this fun is totall number of products in cart page
   const getTotalCartAmount = () => {
     let totalAmount = 0;
@@ -34,36 +42,35 @@ const ShopContextProvider = (props) => {
       if (cartItems[item] > 0) {
         let itemInfo = all_product.find(
           (product) => product.id === Number(item)
-        )
+        );
         totalAmount += itemInfo.new_price * cartItems[item];
       }
     }
     return totalAmount;
   };
 
-
-  // this fn is in navbar carticon 
-  const getTotalCartItems = ()=>{
-
+  // this fn is in navbar carticon
+  const getTotalCartItems = () => {
     let totalItem = 0;
-    for(const item in cartItems){
-      if(CartItems[item]>0){
-          totalItem += cartItems[item];
+    for (const item in cartItems) {
+      if (CartItems[item] > 0) {
+        totalItem += cartItems[item];
       }
     }
     return totalItem;
-  }
-
-
-
-  const contextValue = {
-    getTotalCartItems,getTotalCartAmount,all_product,
-    cartItems,
-    addToCart,
-    removeFromCart
   };
 
-  
+  const contextValue = {
+    getTotalCartItems,
+    getTotalCartAmount,
+    // all_product,
+    cartItems,
+    addToCart,
+    removeFromCart,
+    all_product: getFilteredProducts(),
+    setSelectedCategory
+  };
+
   // console.log(cartItems);
   // if (!props) {
   //     return null; // or handle the scenario accordingly
