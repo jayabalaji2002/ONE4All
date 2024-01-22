@@ -40,7 +40,7 @@ const AddProduct = () => {
 
     if(responseData.success){
         product.image = responseData.image_url;
-        console.log("Successfully Data Fetched!!!", responseData.image_url);
+        console.log("Successfully Data Fetched!!!",product);
         await fetch('http://localhost:5000/addproduct',{
             method:'POST',
             headers:{
@@ -120,7 +120,7 @@ const AddProduct = () => {
           onChange={imageHandler}
         />
       </div>
-      <button className="addproduct-btn" onClick={()=>{Add_Product}}>ADD Product</button>
+      <button className="addproduct-btn" onClick={()=>{Add_Product()}}>ADD Product</button>
     </div>
   );
 };

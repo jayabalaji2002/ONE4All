@@ -18,10 +18,25 @@ const ListProduct = () => {
     fetchInfo();
   }, []);
 
+
+  // Remove product from list product api
+
+  const remove_product = async(id)=>{
+    await fetch('http://localhost:5000/removeproduct',{
+      method:'POST',
+      headers:{
+        Accept:'application/json',
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify({id:id})
+    })
+    await fetchInfo();
+  }
+
   return (
     <div className="list-product">
       <h1>ALL Products</h1>
-      <div className="listproducts-format-main">
+      <div className="listproduct-format-main">
         <p>Products</p>
         <p>Title</p>
         <p>Old Price</p>
@@ -33,30 +48,37 @@ const ListProduct = () => {
       <div className="listproducts-allproducts">
         <hr />
         {allproducts.map((product, index) => {
-
-            console.log("Product image URL:",product.image)
-            const imageUrl = product.image.startsWith('http') ? product.image : `http://localhost:5000/${product.image}`;
+          {
+            /* console.log("Product image URL:",product.image) */
+          }
+          {
+            /* const imageUrl = product.image.startsWith('http') ? product.image : `http://localhost:5000/${product.image}`; */
+          }
 
           return (
-            <div
-              className="listproduct-format-main listproduct-format"
-              key={index}
-            >
-              <img
-                src={imageUrl}
-                alt={product.name}
-                className="listproduct-product-icon"
-              />
-              <p>{product.name}</p>
-              <p>₹{product.old_price}</p>
-              <p>₹{product.new_price}</p>
-              <p>{product.category}</p>
-              <img
-                src={cross_icon}
-                alt="cancel_icon"
-                className="listproduct-remove-icon"
-              />
-            </div>
+            <> 
+              <div
+                className="listproduct-format-main listproduct-format"
+                key={index}
+              >
+                <img
+                  src={product.image}
+                  // alt={product.name}
+                  className="listproduct-product-icon"
+                />
+                <p className="listproduct-name-threeDot">{product.name}</p>
+                <p>₹{product.old_price}</p>
+                <p>₹{product.new_price}</p>
+                <p>{product.category}</p>
+                <img
+                  src={cross_icon}
+                  alt="cancel_icon"
+                  className="listproduct-remove-icon"
+                  onClick={()=>{remove_product(product.id)}}
+                />
+              </div>
+              <hr />
+            </>
           );
         })}
       </div>
