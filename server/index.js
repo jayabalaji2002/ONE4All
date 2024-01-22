@@ -258,3 +258,7 @@ app.get('/newcollections',async(req,res)=>{
   res.send(newcollection);
 
 })
+
+// Popular in women API
+
+app
