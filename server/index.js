@@ -118,6 +118,105 @@ app.post("/addproduct", async (req, res) => {
   });
 });
 
+// schema creting for user model
+
+const Users = mongoose.model("Users", {
+  name: {
+    type: String,
+  },
+  email: {
+    type: String,
+    unique: true,
+  },
+  password: {
+    type: String,
+  },
+  cartData: {
+    type: Object,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+// Creating end point API for Users
+
+app.post("/signup", async (req, res) => {
+  try {
+    let check = await Users.findOne({ email: req.body.email });
+
+    if (check) {
+      return res.status(400).json({
+        success: false,
+        error: "Excisting User found with Same Email Address",
+      });
+    }
+
+    let cart = {};
+
+    for (let i = 0; i < 300; i++) {
+      cart[i] = 0;
+    }
+
+    const user = new Users({
+      name: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+      cartData: cart,
+    });
+
+    await user.save();
+
+    // JWT Authentication
+
+    const data = {
+      user: {
+        id: user.id,
+      },
+    };
+
+    const token = jwt.sign(data, "secret_ecom");
+    res.json({ success: true, token });
+  } catch (error) {
+    console.log("Error during signup: ", error);
+    res.status(500).json({ success: false, error: "Internal Server Error" });
+  }
+});
+
+// Creating end point for user login
+
+app.post("/login", async (req, res) => {
+  let user = await Users.findOne({ email: req.body.email });
+
+  if (user) {
+    const passCompare = req.body.password === user.password;
+
+    if (passCompare) {
+      const data = {
+        user: {
+          id: user.id,
+        },
+      };
+
+      const token = jwt.sign(data, "secret_ecom");
+      res.json({
+        success: true,
+        token,
+      });
+    } else {
+      res.json({
+        success: false,
+        errors: "Wrong Password",
+      });
+    }
+  }else{
+    res.json({
+      success:false,errors:"Wrong Email id"
+    })
+  }
+});
+
 // Creating API for deleting product from DB
 
 app.post("/removeproduct", async (req, res) => {
@@ -145,3 +244,17 @@ app.listen(port, (error) => {
     console.log("Error: " + error);
   }
 });
+
+
+// Creating end point for new collection data
+
+app.get('/newcollections',async(req,res)=>{
+
+  let products = await ProductModel.find({});
+
+  let newcollection = products.slice(1).slice(-8);
+
+  console.log("New Collection fetched");
+  res.send(newcollection);
+
+})

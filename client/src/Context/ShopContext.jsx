@@ -1,6 +1,6 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
-import all_product from "../Components/Assets/all_product";
+// import all_product from "../Components/Assets/all_product";`
 // import CartItems from "../Components/CartItems/CartItems";
 
 export const ShopContext = createContext(null);
@@ -9,7 +9,7 @@ export const ShopContext = createContext(null);
 const getDefaultCart = () => {
   let cart = {};
 
-  for (let index = 0; index < all_product.length+1; index++) {
+  for (let index = 0; index < 300 + 1; index++) {
     cart[index] = 0;
   }
   return cart;
@@ -18,6 +18,7 @@ const getDefaultCart = () => {
 const ShopContextProvider = (props) => {
   const [selectedCategory, setSelectedCategory] = useState("shop");
   const [cartItems, setCartItems] = useState(getDefaultCart());
+  const [all_product, setAll_Product] = useState([]);
 
   // console.log(cartItems);
 
@@ -29,12 +30,19 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  // Getting data from DB
+  useEffect(() => {
+    fetch("http://localhost:5000/allproducts")
+      .then((response) => response.json())
+      .then((data) => setAll_Product(data));
+  }, []);
+
   const addToCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]:prev[itemId] + 1 }));
+    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     // console.log(cartItems);
   };
   const removeFromCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]:prev[itemId] - 1 }));
+    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
 
   // this fun is totall number of products in cart page
@@ -70,7 +78,7 @@ const ShopContextProvider = (props) => {
     addToCart,
     removeFromCart,
     all_product: getFilteredProducts(),
-    setSelectedCategory
+    setSelectedCategory,
   };
 
   // console.log(cartItems);
