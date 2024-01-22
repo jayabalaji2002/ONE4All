@@ -55,7 +55,7 @@ const ShopContextProvider = (props) => {
   const getTotalCartItems = () => {
     let totalItem = 0;
     for (const item in cartItems) {
-      if (CartItems[item] > 0) {
+      if (cartItems[item] > 0) {
         totalItem += cartItems[item];
       }
     }

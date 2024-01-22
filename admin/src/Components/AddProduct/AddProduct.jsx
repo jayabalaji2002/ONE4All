@@ -27,7 +27,8 @@ const AddProduct = () => {
     let product = productDetails;
 
     let formData = new FormData();
-    formData.append('product',image);
+    formData.append('product', image);
+    
 
     await fetch('http://localhost:5000/upload',{
         method:'POST',
@@ -39,7 +40,7 @@ const AddProduct = () => {
 
     if(responseData.success){
         product.image = responseData.image_url;
-        console.log("Successfully Data Fetched!!!");
+        console.log("Successfully Data Fetched!!!", responseData.image_url);
         await fetch('http://localhost:5000/addproduct',{
             method:'POST',
             headers:{
@@ -119,7 +120,7 @@ const AddProduct = () => {
           onChange={imageHandler}
         />
       </div>
-      <button className="addproduct-btn" onClick={()=>{Add_Product()}}>ADD Product</button>
+      <button className="addproduct-btn" onClick={()=>{Add_Product}}>ADD Product</button>
     </div>
   );
 };

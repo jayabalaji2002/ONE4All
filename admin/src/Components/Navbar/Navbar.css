@@ -7,10 +7,15 @@
     margin-bottom: 1px;
     background: white;
 }
-.nav-logo{
+/* .nav-logo{
     width: 200px;
 
+} */
+
+.nav-logo{
+    width: 200px;
 }
+
 .nav-profile{
     width: 75px;
 }
