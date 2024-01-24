@@ -35,6 +35,20 @@ const ShopContextProvider = (props) => {
     fetch("http://localhost:5000/allproducts")
       .then((response) => response.json())
       .then((data) => setAll_Product(data));
+
+    if (localStorage.getItem("auth-token")) {
+      fetch("http://localhost:5000/getcart", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "auth-token": `${localStorage.getItem("auth-token")}`,
+          "Content-Type": "application/json",
+        },
+        body: "",
+      })
+        .then((response) => response.json())
+        .then((data) => setCartItems(data));
+    }
   }, []);
 
   const addToCart = (itemId) => {
