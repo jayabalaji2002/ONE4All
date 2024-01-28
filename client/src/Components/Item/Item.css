@@ -1,32 +1,63 @@
-.item{
-    width: 350px;
-}
-.item img{
-    border-radius: 8px;
-}
-.item p{
-    margin: 6px 0px;
+.item {
+  width: 280px;
 }
 
-.item-prices{
-    display: flex;
-    gap: 20px;
+.item img {
+  border-radius: 8px;
+  width: 280px;
+}
+.item p {
+  margin: 6px 0px;
 }
 
-.item-price-new{
-    color: #374151;
-    font-size: 18px;
-    font-weight: 600;
+.item-prices {
+  display: flex;
+  gap: 20px;
 }
 
-.item-price-old{
-    color: #8c8c8c;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: line-through;
+.item-price-new {
+  color: #374151;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.item:hover{
-    transform: scale(1.05);
-    transition: 0.6s;
+.item-price-old {
+  color: #8c8c8c;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+
+.item:hover {
+  transform: scale(1.05);
+  transition: 0.6s;
+}
+
+@media (max-width: 1280px) {
+  .item {
+    width: 220px;
+    font-size: 14px;
+  }
+  .item .img {
+    width: 220px;
+  }
+  .item-price-old {
+    font-size: 14px;
+  }
+  .item-price-new {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .item {
+    width: 170px;
+    font-size: 13px;
+  }
+  .item img{
+    width: 170px;
+  }
+  .item-price-old{
+    font-size: 13px;
+  }
 }
