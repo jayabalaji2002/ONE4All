@@ -6,7 +6,7 @@ const ListProduct = () => {
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = async () => {
-    await fetch("http://localhost:5000/allproducts")
+    await fetch("https://one4all-server.onrender.com/allproducts")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);
@@ -22,7 +22,7 @@ const ListProduct = () => {
   // Remove product from list product api
 
   const remove_product = async(id)=>{
-    await fetch('http://localhost:5000/removeproduct',{
+    await fetch('https://one4all-server.onrender.com/removeproduct',{
       method:'POST',
       headers:{
         Accept:'application/json',
@@ -48,12 +48,6 @@ const ListProduct = () => {
       <div className="listproducts-allproducts">
         <hr />
         {allproducts.map((product, index) => {
-          {
-            /* console.log("Product image URL:",product.image) */
-          }
-          {
-            /* const imageUrl = product.image.startsWith('http') ? product.image : `http://localhost:5000/${product.image}`; */
-          }
 
           return (
             <> 

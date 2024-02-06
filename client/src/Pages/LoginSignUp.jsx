@@ -24,7 +24,7 @@ const LoginSignUp = () => {
   const login = async () => {
     console.log("Login fun Excuted", formData);
     let responseData;
-    await fetch("http://localhost:5000/login", {
+    await fetch("https://one4all-server.onrender.com/login", {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -49,7 +49,7 @@ const LoginSignUp = () => {
   const signup = async () => {
     console.log("Sign up fn executed", formData);
     let responseData;
-    await fetch("http://localhost:5000/signup", {
+    await fetch("https://one4all-server.onrender.com/signup", {
       method: "POST",
       headers: {
         Accept: "application/form-data",

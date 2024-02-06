@@ -32,12 +32,12 @@ const ShopContextProvider = (props) => {
 
   // Getting data from DB
   useEffect(() => {
-    fetch("http://localhost:5000/allproducts")
+    fetch("https://one4all-server.onrender.com/allproducts")
       .then((response) => response.json())
       .then((data) => setAll_Product(data));
 
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:5000/getcart", {
+      fetch("https://one4all-server.onrender.com/getcart", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -55,7 +55,7 @@ const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     // console.log(cartItems);
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:5000/addtocart", {
+      fetch("https://one4all-server.onrender.com/addtocart", {
         method: "POST",
         headers: {
           Accept: "application/form-data",
@@ -73,7 +73,7 @@ const ShopContextProvider = (props) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:5000/removefromcart", {
+      fetch("https://one4all-server.onrender.com/removefromcart", {
         method: "POST",
         headers: {
           Accept: "application/form-data",
