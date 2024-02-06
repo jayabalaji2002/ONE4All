@@ -11,6 +11,7 @@ app.use(express.json());
 
 app.use(cors());
 
+
 // Adding database connecting Mongodb online
 
 mongoose.connect(
@@ -187,7 +188,7 @@ app.post("/signup", async (req, res) => {
 // Creating end point for user login
 
 app.post("/login", async (req, res) => {
-  let user = await Users.findOne({ email: req.body.email });
+  let user = await Users.findOne({ email:req.body.email });
 
   if (user) {
     const passCompare = req.body.password === user.password;
@@ -233,7 +234,7 @@ app.post("/removeproduct", async (req, res) => {
 
 app.get("/allproducts", async (req, res) => {
   let products = await ProductModel.find({});
-  console.log("All Products Fetched!");
+  // console.log("All Products Fetched!");
 
   res.send(products);
 });
@@ -263,7 +264,7 @@ app.get("/popularinwomen", async (req, res) => {
 
   let popular_in_women = products.slice(0, 4);
 
-  console.log("Popular in women");
+  // console.log("Popular in women");
 
   res.send(popular_in_women);
 });
@@ -321,9 +322,9 @@ app.post("/removefromcart", fetchUser, async (req, res) => {
 
 // Creating end point data for cart from db
 
-// app.post('/getcart',fetchUser,async(req,res)=>{
-//   // console.log("Get cart");
-//   let userData = await Users.findOne({_id:req.user.id})
-//   res.json(userData.cartData);
+app.post('/getcart',fetchUser,async(req,res)=>{
+  // console.log("Get cart");
+  let userData = await Users.findOne({_id:req.user.id})
+  res.json(userData.cartData);
 
-// })
+})
